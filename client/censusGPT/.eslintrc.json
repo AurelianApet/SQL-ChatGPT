@@ -1,0 +1,34 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "react",
+    "import"
+  ],
+  "rules": {
+    "react/prop-types": 0,
+    "no-undef": "error",
+    "no-unused-vars": "warn",
+    "react/no-unescaped-entities": "off",
+    "no-irregular-whitespace": "off",
+    "react/no-unknown-property": "off"
+  },
+  "globals": {
+    "process": "readonly",
+    "React": "writable",
+    "require": "readonly"
+  }
+}

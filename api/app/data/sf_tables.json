@@ -1,0 +1,1040 @@
+{
+    "enums": [
+        {
+            "type": "NEIGHBORHOOD",
+            "valid_values": [
+                "The Farallones",
+                "Western Addition",
+                "West of Twin Peaks",
+                "Visitacion Valley",
+                "Twin Peaks",
+                "South of Market",
+                "Treasure Island",
+                "Presidio Heights",
+                "Presidio",
+                "Potrero Hill",
+                "Portola",
+                "Pacific Heights",
+                "Outer Richmond",
+                "Outer Mission",
+                "Sunset/Parkside",
+                "Oceanview/Merced/Ingleside",
+                "North Beach",
+                "Noe Valley",
+                "Lone Mountain/USF",
+                "Lincoln Park",
+                "Seacliff",
+                "Nob Hill",
+                "Mission Bay",
+                "Mission",
+                "Russian Hill",
+                "Marina",
+                "Lakeshore",
+                "Tenderloin",
+                "McLaren Park",
+                "Japantown",
+                "Inner Sunset",
+                "Hayes Valley",
+                "Haight Ashbury",
+                "Golden Gate Park",
+                "Inner Richmond",
+                "Glen Park",
+                "Financial District/South Beach",
+                "Excelsior",
+                "Chinatown",
+                "Castro/Upper Market",
+                "Bernal Heights",
+                "Bayview Hunters Point"
+            ]
+        },
+        {
+            "type": "PLACE_TYPE",
+            "valid_values": [
+                "coffee shop",
+                "bakery",
+                "restaurant",
+                "meal takeaway",
+                "bar",
+                "night club",
+                "museum",
+                "park",
+                "gas station"
+            ]
+        },
+        {
+            "type": "311_STATUS",
+            "valid_values": [
+                "Closed",
+                "Open"
+            ]
+        },
+        {
+            "type": "311_CASE_TYPE",
+            "valid_values": [
+                "Abandoned Vehicle",
+                "Blocked Street or SideWalk",
+                "Damaged Property",
+                "Homeless Encampments",
+                "Graffiti",
+                "Homeless Concerns",
+                "Illegal Postings",
+                "Litter Receptacles",
+                "Noise Report",
+                "Parking Enforcement",
+                "Rec and Park Requests",
+                "Residential Building Request",
+                "Sewer Issues",
+                "SFHA Requests",
+                "Shared Spaces Violation",
+                "Sidewalk or Curb",
+                "Sign Repair",
+                "Street and Sidewalk Cleaning",
+                "Street Defects",
+                "Streetlights",
+                "Temporary Sign Request",
+                "Tree Maintenance",
+                "Feces/Urine",
+                "Needles"
+            ]
+        },
+        {
+            "type": "CRIME_RESOLUTION",
+            "valid_values": [
+                "Cite or Arrest Adult",
+                "Exceptional Adult",
+                "Open or Active",
+                "Unfounded"
+            ]
+        },
+        {
+            "type": "CRIME_CASE_TYPE",
+            "valid_values": [
+                "Aggravated Assault",
+                "Arrest",
+                "Arson",
+                "Bad Checks",
+                "Bribery",
+                "Burglary - Commercial",
+                "Burglary - Hot Prowl",
+                "Burglary - Other",
+                "Burglary - Residential",
+                "Case Closure",
+                "Courtesy Report",
+                "Disorderly Conduct",
+                "Drug Violation",
+                "Drunkenness",
+                "Embezzlement",
+                "Extortion-Blackmail",
+                "Fire Report",
+                "Forgery And Counterfeiting",
+                "Fraud",
+                "Gambling",
+                "Homicide",
+                "Homicide - Excusable",
+                "Human Trafficking, Commercial Sex Acts",
+                "Human Trafficking, Involuntary Servitude",
+                "Intimidation",
+                "Kidnapping",
+                "Larceny - Auto Parts",
+                "Larceny - From Vehicle",
+                "Larceny - Bicycle",
+                "Larceny - From Building",
+                "Larceny - Other",
+                "Larceny - Pickpocket",
+                "Larceny - Purse Snatch",
+                "Larceny - Shoplifting",
+                "Liquor Law Violation",
+                "Loitering",
+                "Lost Property",
+                "Manslaughter",
+                "Miscellaneous Investigation",
+                "Missing Adult",
+                "Missing Person",
+                "Motor Vehicle Theft",
+                "Motor Vehicle Theft (Attempted)",
+                "Non-Criminal",
+                "Other",
+                "Other Offenses",
+                "Prostitution",
+                "Rape",
+                "Rape - Attempted",
+                "Recovered Vehicle",
+                "Robbery - Carjacking",
+                "Robbery - Commercial",
+                "Robbery - Other",
+                "Robbery - Residential",
+                "Robbery - Street",
+                "Sex Offense",
+                "Simple Assault",
+                "Stalking",
+                "Stolen Property",
+                "Suicide",
+                "Suspicious Occurrence",
+                "Suspicious Package",
+                "Theft From Vehicle",
+                "Traffic Collision",
+                "Traffic Collision - Hit & Run",
+                "Traffic Violation Arrest",
+                "Trespass",
+                "Vandalism",
+                "Vehicle Impounded",
+                "Vehicle Misplaced",
+                "Warrant",
+                "Weapons Offense"
+            ]
+        },
+        {
+            "type":"HOME_TYPE",
+            "valid_values":[
+                "CONDO",
+                "MULTI_FAMILY",
+                "TOWNHOUSE",
+                "SINGLE_FAMILY",
+                "LOT",
+                "APARTMENT"
+            ]
+        },{
+        "type": "HOME_STATUS",
+        "valid_values":[
+            "FOR_SALE",
+            "FOR_RENT"
+        ]
+    }
+    ],
+    "tables": [
+        {
+            "name": "sf_crime_incidents",
+            "description": "Crime incidents in San Francisco",
+            "columns": [
+                {
+                    "name": "occurred",
+                    "type": "DATETIME"
+                },
+                {
+                    "name": "reported",
+                    "type": "DATETIME"
+                },
+                {
+                    "name": "incident_type",
+                    "type": "TEXT",
+                    "description": "enum `CRIME_CASE_TYPE`"
+                },
+                {
+                    "name": "description",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "resolution",
+                    "type": "TEXT",
+                    "description": "enum `CRIME_RESOLUTION`"
+                },
+                {
+                    "name": "point",
+                    "type": "TEXT",
+                    "description": "longitude latitude of incident"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--crime incidents in San Francisco\nCREATE TABLE sf_crime_incidents (\n    occurred DATETIME,\n    reported DATETIME,\n    incident_type TEXT, --enum `CRIME_CASE_TYPE`\n    description TEXT,\n    resolution TEXT, --enum `CRIME_RESOLUTION`\n    point TEXT, --longitude latitude of incident\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_311_incidents",
+            "description": "311 municipal services incidents in San Francisco",
+            "columns": [
+                {
+                    "name": "opened",
+                    "type": "DATETIME"
+                },
+                {
+                    "name": "closed",
+                    "type": "DATETIME"
+                },
+                {
+                    "name": "status",
+                    "type": "TEXT",
+                    "description": "enum `311_STATUS`"
+                },
+                {
+                    "name": "incident_type",
+                    "type": "TEXT",
+                    "description": "enum `311_CASE_TYPE`"
+                },
+                {
+                    "name": "point",
+                    "type": "TEXT",
+                    "description": "longitude latitude of incident"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--311 municipal services incidents in San Francisco\nCREATE TABLE sf_311_incidents (\n    opened DATETIME,\n    closed DATETIME,\n    status TEXT, --enum `311_STATUS`\n    incident_type TEXT, --enum `311_CASE_TYPE`\n    point TEXT, --longitude latitude of incident\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_age_by_census_tract",
+            "description": "Population data by age in San Francisco",
+            "columns": [
+                {
+                    "name": "census_tract",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "under_5",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_5_to_9",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_10_to_14",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_25_to_34",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_35_to_44",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_45_to_54",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_55_to_59",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_60_to_64",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_65_to_74",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_75_to_84",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_85_and_over",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "under_18",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_18_and_over",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--age population data in San Francisco by census tract\nCREATE TABLE sf_age_by_census_tract (\n    census_tract TEXT PRIMARY KEY,\n    under_5 FLOAT,\n    age_5_to_9 FLOAT,\n    age_10_to_14 FLOAT,\n    age_25_to_34 FLOAT,\n    age_35_to_44 FLOAT,\n    age_45_to_54 FLOAT,\n    age_55_to_59 FLOAT,\n    age_60_to_64 FLOAT,\n    age_65_to_74 FLOAT,\n    age_75_to_84 FLOAT,\n    age_85_and_over FLOAT,\n    under_18 FLOAT,\n    age_18_and_over FLOAT,\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_income_by_census_tract",
+            "description": "Population data by income in San Francisco",
+            "columns": [
+                {
+                    "name": "census_tract",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "age_16_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_16_plus_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "full_time_work_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_1_to_9999_or_loss_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_10000_to_14999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_15000_to_24999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_25000_to_34999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_35000_to_49999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_50000_to_64999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_65000_to_74999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_75000_to_99999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "earning_100000_and_over_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_16_plus_mean_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "age_25_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "median_earnings_less_than_high_school_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "high_school_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "associated_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "bachelors_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "graduate_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_age_16_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_age_16_plus_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_full_time_work_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_1_to_9999_or_loss_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_10000_to_14999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_15000_to_24999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_25000_to_34999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_35000_to_49999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_50000_to_64999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_65000_to_74999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_75000_to_99999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "males_earning_100000_and_over_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_age_16_plus_mean_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_age_25_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_less_than_high_school_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_high_school_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_associates_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_bachelors_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "male_graduate_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_age_16_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_age_16_plus_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_full_time_work_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_1_to_9999_or_loss_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_10000_to_14999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_15000_to_24999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_25000_to_34999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_35000_to_49999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_50000_to_64999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_65000_to_74999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_75000_to_99999_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "females_earning_100000_and_over_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_age_16_plus_mean_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_age_25_plus_with_earnings_count",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_less_than_high_school_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_high_school_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_associates_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_bachelors_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_graduate_degree_median_earnings_dollars",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--income data in San Francisco by census tract\nCREATE TABLE sf_income_by_census_tract (\n    census_tract TEXT PRIMARY KEY,\n    age_16_plus_with_earnings_count FLOAT,\n    age_16_plus_median_earnings_dollars FLOAT,\n    full_time_work_population FLOAT,\n    earning_1_to_9999_or_loss_count FLOAT,\n    earning_10000_to_14999_count FLOAT,\n    earning_15000_to_24999_count FLOAT,\n    earning_25000_to_34999_count FLOAT,\n    earning_35000_to_49999_count FLOAT,\n    earning_50000_to_64999_count FLOAT,\n    earning_65000_to_74999_count FLOAT,\n    earning_75000_to_99999_count FLOAT,\n    earning_100000_and_over_count FLOAT,\n    age_16_plus_mean_earnings_dollars FLOAT,\n    age_25_plus_with_earnings_count FLOAT,\n    median_earnings_less_than_high_school_dollars FLOAT,\n    high_school_degree_median_earnings_dollars FLOAT,\n    associated_degree_median_earnings_dollars FLOAT,\n    bachelors_degree_median_earnings_dollars FLOAT,\n    graduate_degree_median_earnings_dollars FLOAT,\n    male_age_16_plus_with_earnings_count FLOAT,\n    male_age_16_plus_median_earnings_dollars FLOAT,\n    male_full_time_work_population FLOAT,\n    males_earning_1_to_9999_or_loss_count FLOAT,\n    males_earning_10000_to_14999_count FLOAT,\n    males_earning_15000_to_24999_count FLOAT,\n    males_earning_25000_to_34999_count FLOAT,\n    males_earning_35000_to_49999_count FLOAT,\n    males_earning_50000_to_64999_count FLOAT,\n    males_earning_65000_to_74999_count FLOAT,\n    males_earning_75000_to_99999_count FLOAT,\n    males_earning_100000_and_over_count FLOAT,\n    male_age_16_plus_mean_earnings_dollars FLOAT,\n    male_age_25_plus_with_earnings_count FLOAT,\n    male_less_than_high_school_degree_median_earnings_dollars FLOAT,\n    male_high_school_degree_median_earnings_dollars FLOAT,\n    male_associates_degree_median_earnings_dollars FLOAT,\n    male_bachelors_degree_median_earnings_dollars FLOAT,\n    male_graduate_degree_median_earnings_dollars FLOAT,\n    female_age_16_plus_with_earnings_count FLOAT,\n    female_age_16_plus_median_earnings_dollars FLOAT,\n    female_full_time_work_population FLOAT,\n    females_earning_1_to_9999_or_loss_count FLOAT,\n    females_earning_10000_to_14999_count FLOAT,\n    females_earning_15000_to_24999_count FLOAT,\n    females_earning_25000_to_34999_count FLOAT,\n    females_earning_35000_to_49999_count FLOAT,\n    females_earning_50000_to_64999_count FLOAT,\n    females_earning_65000_to_74999_count FLOAT,\n    females_earning_75000_to_99999_count FLOAT,\n    females_earning_100000_and_over_count FLOAT,\n    female_age_16_plus_mean_earnings_dollars FLOAT,\n    female_age_25_plus_with_earnings_count FLOAT,\n    female_less_than_high_school_degree_median_earnings_dollars FLOAT,\n    female_high_school_degree_median_earnings_dollars FLOAT,\n    female_associates_degree_median_earnings_dollars FLOAT,\n    female_bachelors_degree_median_earnings_dollars FLOAT,\n    female_graduate_degree_median_earnings_dollars FLOAT,\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n)"
+        },
+        {
+            "name": "sf_race_by_census_tract",
+            "description": "Population data by race in San Francisco",
+            "columns": [
+                {
+                    "name": "census_tract",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "two_or_more_races",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "white",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "black",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "native_american",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "asian",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "indian",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "chinese",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "filipino",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "japanese",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "korean",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "vietnamese",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "other_asian",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "pacific_islander",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "other_race",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--racial population data in San Francisco by census tract\nCREATE TABLE sf_race_by_census_tract (\n    census_tract TEXT PRIMARY KEY,\n    two_or_more_races FLOAT,\n    white FLOAT,\n    black FLOAT,\n    native_american FLOAT,\n    asian FLOAT,\n    indian FLOAT,\n    chinese FLOAT,\n    filipino FLOAT,\n    japanese FLOAT,\n    korean FLOAT,\n    vietnamese FLOAT,\n    other_asian FLOAT,\n    pacific_islander FLOAT,\n    other_race FLOAT,\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_total_pop_by_census_tract",
+            "description": "Total population data in San Francisco",
+            "columns": [
+                {
+                    "name": "census_tract",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "tract_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--total population data in San Francisco by census tract\nCREATE TABLE sf_total_pop_by_census_tract (\n    census_tract TEXT PRIMARY KEY,\n    tract_population FLOAT,\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_sex_by_census_tract",
+            "description": "Population data by sex in San Francisco",
+            "columns": [
+                {
+                    "name": "census_tract",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "male_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "female_population",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                }
+            ],
+            "table_creation_query": "--sex population data in San Francisco by census tract\nCREATE TABLE sf_sex_by_census_tract (\n    census_tract TEXT PRIMARY KEY,\n    male_population FLOAT,\n    female_population FLOAT,\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT\n);"
+        },
+        {
+            "name": "sf_places",
+            "description": "Places in San Francisco",
+            "columns": [
+                {
+                    "name": "name",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "place_type",
+                    "type": "TEXT",
+                    "description": "enum `PLACE_TYPE`"
+                },
+                {
+                    "name": "neighborhood",
+                    "type": "TEXT",
+                    "description": "enum `NEIGHBORHOOD`"
+                },
+                {
+                    "name": "zip_code",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "point",
+                    "type": "TEXT",
+                    "description": "longitude latitude of place"
+                },
+                {
+                    "name": "address",
+                    "type": "TEXT"
+                },
+                {
+                    "name": "rating",
+                    "type": "FLOAT"
+                },
+                {
+                    "name": "num_ratings",
+                    "type": "INT"
+                }
+            ],
+            "table_creation_query": "--places in San Francisco\nCREATE TABLE sf_places (\n    name TEXT,\n    place_type TEXT, --enum `PLACE_TYPE`\n    neighborhood TEXT, --enum `NEIGHBORHOOD`\n    zip_code TEXT,\n    point TEXT, --longitude latitude of place\n    address TEXT,\n    rating FLOAT,\n    num_ratings INT,\n);"
+        },
+        {
+            "active": true,
+            "columns": [
+                {
+                    "active": true,
+                    "name": "is_foreclosure",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "bedrooms",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "is_new_home",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "zestimate",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "date_price_changed",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "is_open_house",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "is_bank_owned",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "is_rental_with_base_price",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "is_for_auction",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "zpid",
+                    "type": "bigint"
+                },
+                {
+                    "active": true,
+                    "name": "price",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "bathrooms",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "square_feet",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "days_on_zillow",
+                    "type": "bigint"
+                },
+                {
+                    "active": true,
+                    "name": "is_featured",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "should_highlight",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "rent_zestimate",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "is_fsba",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "street_address",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "zip_code",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "city",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "state",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "point",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "neighborhood",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "group_type",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "home_type",
+                    "type": "text",
+                    "description": "enum `HOME_TYPE`"
+                },
+                {
+                    "active": true,
+                    "name": "home_status",
+                    "type": "text",
+                    "description": "enum `HOME_STATUS`"
+                }
+            ],
+            "description": "",
+            "name": "sf_homes_for_sale",
+            "table_creation_query": "CREATE TABLE sf_homes_for_sale (-- data about homes for sale in San Francisco\n    is_foreclosure boolean,\n    bedrooms double precision,\n    is_new_home boolean,\n    zestimate double precision,\n    date_price_changed double precision,\n    is_open_house boolean,\n    is_bank_owned boolean,\n    is_rental_with_base_price boolean,\n    is_for_auction boolean,\n    zpid bigint, -- Zillow property ID\n    price double precision,\n    bathrooms double precision,\n    square_feet double precision,\n    days_on_zillow bigint,\n    is_featured boolean,\n    should_highlight boolean,\n    rent_zestimate double precision,\n    is_fsba boolean, -- indicates if the property is a for sale by owner\n    street_address text,\n    zip_code text,\n    city text,\n    state text,\n    point text, -- latlong coordinates\n    neighborhood text,  --enum `NEIGHBORHOOD`\n    group_type text, -- type of group the property belongs to\n    home_type text,  --enum `HOME_TYPE`\n    home_status text --enum `HOME_STATUS`;",
+            "update_count": 1
+        },
+        {
+            "active": true,
+            "columns": [
+                {
+                    "active": true,
+                    "name": "zpid",
+                    "type": "bigint"
+                },
+                {
+                    "active": true,
+                    "name": "days_on_zillow",
+                    "type": "bigint"
+                },
+                {
+                    "active": true,
+                    "name": "is_featured",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "should_highlight",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "is_rental_with_base_price",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "rent_zestimate",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "zestimate",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "date_price_changed",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "is_open_house",
+                    "type": "boolean"
+                },
+                {
+                    "active": true,
+                    "name": "price",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "bathrooms",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "bedrooms",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "square_feet",
+                    "type": "double precision"
+                },
+                {
+                    "active": true,
+                    "name": "street_address",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "zip_code",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "city",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "state",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "home_type",
+                    "type": "text",
+                    "description": "enum `HOME_TYPE`"
+                },
+                {
+                    "active": true,
+                    "name": "home_status",
+                    "type": "text",
+                    "description": "enum `HOME_STATUS`"
+                },
+                {
+                    "active": true,
+                    "name": "point",
+                    "type": "text"
+                },
+                {
+                    "active": true,
+                    "name": "neighborhood",
+                    "type": "text"
+                }
+            ],
+            "description": "",
+            "name": "sf_homes_for_rent",
+            "table_creation_query": "CREATE TABLE sf_homes_for_rent (-- data about homes, apartments, etc for rent in San Francisco\n    zpid bigint, -- unique identifier for each property\n    days_on_zillow bigint,\n    is_featured boolean,\n    should_highlight boolean,\n    is_rental_with_base_price boolean,\n    rent_zestimate double precision,\n    zestimate double precision,\n    date_price_changed double precision,\n    is_open_house boolean,\n    price double precision, -- rental price\n    bathrooms double precision,\n    bedrooms double precision,\n    square_feet double precision,\n    street_address text,\n    zip_code text,\n    city text,\n    state text,\n    home_type text, --enum `HOME_TYPE`\n    home_status text, --enum `HOME_STATUS`\n    point text, -- latlong\n    neighborhood text --enum `NEIGHBORHOOD`);",
+            "update_count": 1
+        }
+    ]
+}
